@@ -1,3 +1,6 @@
+import { ChartLineDefault } from "./chart-area-default";
+import { Button } from "./ui/button";
+
 type PageKey = "dashboard" | "pix" | "coins" | "folha";
 
 interface CenterProps {
@@ -6,12 +9,65 @@ interface CenterProps {
 
 const Center = ({ page }: CenterProps) => {
   if (page === "dashboard") {
-    return <div className="w-[944px] h-[563px]"></div>;
+    return (
+      <div className="w-[944px] h-[563px] flex flex-col-1">
+        <div className="m-6">
+          <div className="w-[332px] h-[160px] border-1 border-b-0 border-gray-400/50 rounded-2xl  mb-0 p-6 space-y-2">
+            <p className="text-white text-[12px]">Seu Saldo Bancario</p>
+
+            <p className="text-white text-[14px]">
+              R$ <span className="text-[20px]">923.751.235</span>
+            </p>
+
+            <div className="w-[272px] h-[36px] flex space-x-2">
+              <Button className="w-[40px] h-[36px]  !bg-[#292929] rounded-[5px]">
+                <img src="./Mao.svg" alt="Sacar" />
+              </Button>
+              <Button className="w-[40px] h-[36px] !bg-[#292929] rounded-[5px]">
+                <img src="./Pig.svg" alt="Depositar" />
+              </Button>
+              <Button className="w-[172px] h-[36px] !bg-[#292929] rounded-[5px]">
+                <img src="./PixWhite.svg" alt="Pix" />
+              </Button>
+            </div>
+          </div>
+          <div className="w-[332px] h-[160px] border-1 border-t-0 border-gray-400/50 rounded-2xl mt-0 p-6 space-y-2">
+            <p className="text-white text-[12px]">Seu Saldo Bancario</p>
+            <p className="text-gray-400/50 text-[10px] ">
+              Visualize, gerencie e pague suas multas aqui.
+            </p>
+            <div className="w-[272px] h-[28px] border-1 border-gray-400/50 rounded-[5px] items-center flex">
+              <p className="text-gray-400/50 text-[10px] pl-3">VALOR</p>
+              <p className="text-white text-[10px] pl-13">
+                R$ <span>966.000.000</span>
+              </p>
+            </div>
+
+            <div className="w-[171px] h-[28px] rounded-[5px] items-center bg-black/38 flex justify-between space-x-2.5">
+              <input type="text" className="w-[171px] h-[28px]" />
+              <Button className="w-[91px] h-[28px] !bg-[#292929] rounded-[5px]">
+                PAGAR
+              </Button>
+            </div>
+          </div>
+          <div className="w-[332px] h-[160px] border-1 border-gray-400/50 rounded-2xl mt-5">
+            <ChartLineDefault />
+          </div>
+        </div>
+        <div className="w-[236px] h-[503px] mt-6 space-y-5">
+          <div className="w-[236px] h-[403px] bg-[#292929] rounded-2xl"></div>
+          <div className="w-[236px] h-[80px] border-1 border-gray-400/50 rounded-2xl"></div>
+        </div>
+        <div className="w-[276px] h-[503px] m-6 space-y-5 border-1 border-gray-400/50 rounded-2xl">
+          <div className=""></div>
+        </div>
+      </div>
+    );
   }
 
   // Render bem simples pros outros, só pra ver funcionando
   return (
-    <div className="w-full border-2 rounded-2xl p-6">
+    <div className="w-full  p-6">
       <h2 className="text-2xl font-semibold capitalize">
         {page.replace("-", " ")}
       </h2>

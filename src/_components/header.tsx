@@ -12,7 +12,7 @@ const Header = () => {
           <span className="text-gray-400/50">-</span> Dashboard{" "}
           <span className="text-gray-400/50">|</span>
         </h1>
-        <p className="text-gray-400/50">
+        <p className="text-gray-400/50 text-sm">
           Visualize sua conta bancária e seus investimentos.
         </p>
       </div>
