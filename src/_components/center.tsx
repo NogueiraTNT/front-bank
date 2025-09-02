@@ -1,5 +1,6 @@
 import { ChartLineDefault } from "./chart-area-default";
 import { Button } from "./ui/button";
+import { Circle } from "lucide-react";
 
 type PageKey = "dashboard" | "pix" | "coins" | "folha";
 
@@ -50,16 +51,65 @@ const Center = ({ page }: CenterProps) => {
               </Button>
             </div>
           </div>
-          <div className="w-[332px] h-[160px] border-1 border-gray-400/50 rounded-2xl mt-5">
+          <div className="w-[332px] h-[160px] rounded-2xl mt-5">
             <ChartLineDefault />
           </div>
         </div>
         <div className="w-[236px] h-[503px] mt-6 space-y-5">
-          <div className="w-[236px] h-[403px] bg-[#292929] rounded-2xl"></div>
-          <div className="w-[236px] h-[80px] border-1 border-gray-400/50 rounded-2xl"></div>
+          <div className="w-[236px] h-[403px] bg-[#292929] rounded-2xl items-center flex flex-col">
+            <div className="pt-5 w-[196px] h-[257px]">
+              <img src="./Card.png" alt="" />
+            </div>
+            <div className="w-[196px] h-[91px] items-center flex flex-col  mt-7">
+              <div className="items-center flex flex-col">
+                <div className="flex items-center gap-1">
+                  <Circle size={6} className="bg-[#02BC77] rounded-full" />
+                  <p className="text-white/35 text-[12px]">Entradas</p>
+                </div>
+                <p className="text-white text-[12px] font-bold">R$7.234</p>
+              </div>
+
+              <div className="items-center flex flex-col">
+                <div className="flex items-center gap-1">
+                  <Circle size={6} className="bg-[#FF615C] rounded-full" />
+                  <p className="text-white/35 text-[12px]">Saídas</p>
+                </div>
+                <p className="text-white text-[12px] font-bold">R$7.234</p>
+              </div>
+
+              <div className="items-center flex flex-col">
+                <div className="flex items-center gap-1">
+                  <Circle size={6} className="bg-[#FFFFFF] rounded-full" />
+                  <p className="text-white/35 text-[12px]">
+                    Valores depositado
+                  </p>
+                </div>
+                <p className="text-white text-[12px] font-bold">R$7.234</p>
+              </div>
+            </div>
+          </div>
+          <div className="w-[236px] h-[80px] border-1 border-gray-400/50 rounded-2xl flex items-center justify-center">
+            <Button className="w-[172px] h-[36px] !bg-[#292929] rounded-[5px]">
+              <img src="./Cripto.svg" alt="Pix" />
+              Ver Criptomoedas
+            </Button>
+          </div>
         </div>
-        <div className="w-[276px] h-[503px] m-6 space-y-5 border-1 border-gray-400/50 rounded-2xl">
-          <div className=""></div>
+        <div className="w-[276px] h-[503px] m-6 space-y-5 border-1 border-gray-400/50 rounded-2xl ">
+          <div className="flex justify-between flex-col p-5">
+            <p className="text-white text-[12px]">Transações</p>
+            <div className="w-[236px] h-[28px] pt-2 space-x-2">
+              <Button className="w-[72px] h-[28px] !bg-[#292929] rounded-[5px]">
+                Hoje
+              </Button>
+              <Button className="w-[72px] h-[28px] !bg-[#292929] rounded-[5px]">
+                5 dias
+              </Button>
+              <Button className="w-[72px] h-[28px] !bg-[#292929] rounded-[5px]">
+                30 dias
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
     );

@@ -76,7 +76,7 @@ function SpotlightDot(props: any) {
 
 export function ChartLineDefault() {
   return (
-    <Card className="bg-[#0B0B0B]  h-full shadow-none">
+    <Card className="bg-[#0B0B0B] border-1 border-gray-400/50  h-full">
       <CardContent className="p-0 h-full">
         {/* clip perfeito no raio */}
         <div className="h-full w-full">

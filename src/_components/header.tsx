@@ -1,7 +1,7 @@
 const Header = () => {
   return (
     <div className="w-[944px] h-[70px] border-1 border-gray-400/50">
-      <div className="pt-5 pl-8 flex space-x-2">
+      <div className="pt-5 pl-8 flex space-x-2 items-center">
         <img
           src="./logo.png"
           alt="Foto da Logo da Cidade"
