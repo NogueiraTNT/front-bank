@@ -1,4 +1,5 @@
 import { ChartLineDefault } from "./chart-area-default";
+import TypeTransaction from "./type-transactio";
 import { Button } from "./ui/button";
 import { Circle } from "lucide-react";
 
@@ -21,10 +22,10 @@ const Center = ({ page }: CenterProps) => {
             </p>
 
             <div className="w-[272px] h-[36px] flex space-x-2">
-              <Button className="w-[40px] h-[36px]  !bg-[#292929] rounded-[5px]">
+              <Button className="w-[40px] h-[36px]  !bg-[#292929] rounded-[5px] p-0">
                 <img src="./Mao.svg" alt="Sacar" />
               </Button>
-              <Button className="w-[40px] h-[36px] !bg-[#292929] rounded-[5px]">
+              <Button className="w-[40px] h-[36px] !bg-[#292929] rounded-[5px] p-0">
                 <img src="./Pig.svg" alt="Depositar" />
               </Button>
               <Button className="w-[172px] h-[36px] !bg-[#292929] rounded-[5px]">
@@ -108,6 +109,29 @@ const Center = ({ page }: CenterProps) => {
               <Button className="w-[72px] h-[28px] !bg-[#292929] rounded-[5px]">
                 30 dias
               </Button>
+            </div>
+          </div>
+          <div className="w-[236px] h-[392px] ml-6 space-y-4">
+            <p className="text-white/55 text-[11px]">Hoje</p>
+            <div className="w-[229px] h-[177px] flex flex-col space-y-3">
+              {/* Trasferencias */}
+              <TypeTransaction
+                type={"transferencia"}
+                date={"11/09/2023 ás 15:15"}
+                amount={525627}
+              />
+              {/* Saque */}
+              <TypeTransaction
+                type={"saque"}
+                date={"11/09/2023 ás 15:15"}
+                amount={105626}
+              />
+              {/* Deposito */}
+              <TypeTransaction
+                type={"deposito"}
+                date={"11/09/2023 ás 15:15"}
+                amount={75893}
+              />
             </div>
           </div>
         </div>
