@@ -4,9 +4,15 @@ type TypeTransactionProps = {
   type: string;
   date: string;
   amount: number;
+  width?: string;
 };
 
-const TypeTransaction = ({ type, date, amount }: TypeTransactionProps) => {
+const TypeTransaction = ({
+  type,
+  date,
+  amount,
+  width = "w-[77px]",
+}: TypeTransactionProps) => {
   let iconSelect: React.ElementType = () => null;
   let title = "";
   let textColor = "";
@@ -28,7 +34,7 @@ const TypeTransaction = ({ type, date, amount }: TypeTransactionProps) => {
   const Icon = iconSelect;
 
   return (
-    <div className="w-[229px] h-[35px] flex space-x-3">
+    <>
       <div className="w-[35px] h-[35px] border border-gray-400/50 rounded-[10px] flex justify-center items-center">
         <Icon className={textColor} />
       </div>
@@ -40,12 +46,12 @@ const TypeTransaction = ({ type, date, amount }: TypeTransactionProps) => {
         </div>
       </div>
 
-      <div className="w-[77px] h-[35px] flex justify-end items-center">
+      <div className={`${width} h-[35px] flex justify-end items-center`}>
         <p className={`${textColor} text-[11px]`}>
           R$ {amount.toLocaleString()}
         </p>
       </div>
-    </div>
+    </>
   );
 };
 

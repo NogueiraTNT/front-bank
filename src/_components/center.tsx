@@ -1,4 +1,5 @@
 import { ChartLineDefault } from "./chart-area-default";
+import ChavePix from "./chave-pisx";
 import TypeTransaction from "./type-transactio";
 import { Button } from "./ui/button";
 import { Circle } from "lucide-react";
@@ -96,7 +97,7 @@ const Center = ({ page }: CenterProps) => {
             </Button>
           </div>
         </div>
-        <div className="w-[276px] h-[503px] m-6 space-y-5 border-1 border-gray-400/50 rounded-2xl ">
+        <div className="w-[276px] h-[503px] m-6 space-y-5 border-1 border-gray-400/50 rounded-2xl">
           <div className="flex justify-between flex-col p-5">
             <p className="text-white text-[12px]">Transações</p>
             <div className="w-[236px] h-[28px] pt-2 space-x-2">
@@ -115,41 +116,121 @@ const Center = ({ page }: CenterProps) => {
             <p className="text-white/55 text-[11px]">Hoje</p>
             <div className="w-[229px] h-[177px] flex flex-col space-y-3">
               {/* Trasferencias */}
-              <TypeTransaction
-                type={"transferencia"}
-                date={"11/09/2023 ás 15:15"}
-                amount={525627}
-              />
+
+              <div className="w-[229px] h-[35px] flex space-x-3">
+                <TypeTransaction
+                  type={"transferencia"}
+                  date={"11/09/2023 ás 15:15"}
+                  amount={525627}
+                />
+              </div>
               {/* Saque */}
-              <TypeTransaction
-                type={"saque"}
-                date={"11/09/2023 ás 15:15"}
-                amount={105626}
-              />
+              <div className="w-[229px] h-[35px] flex space-x-3">
+                <TypeTransaction
+                  type={"saque"}
+                  date={"11/09/2023 ás 15:15"}
+                  amount={105626}
+                />
+              </div>
               {/* Deposito */}
-              <TypeTransaction
-                type={"deposito"}
-                date={"11/09/2023 ás 15:15"}
-                amount={75893}
-              />
+              <div className="w-[229px] h-[35px] flex space-x-3">
+                <TypeTransaction
+                  type={"deposito"}
+                  date={"11/09/2023 ás 15:15"}
+                  amount={75893}
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
     );
-  }
+  } else if (page === "pix") {
+    return (
+      <div className="w-[944px] h-[563px] flex flex-col-1">
+        <div className="m-6 pb-0 space-y-5">
+          <div className="w-[300px] h-[142px] border-1 border-gray-400/50 bg-[#292929] rounded-2xl p-5 space-y-2">
+            <p className="text-white text-[12px]">Saldo Disponível</p>
 
-  // Render bem simples pros outros, só pra ver funcionando
-  return (
-    <div className="w-full  p-6">
-      <h2 className="text-2xl font-semibold capitalize">
-        {page.replace("-", " ")}
-      </h2>
-      <p className="text-sm text-muted-foreground">
-        Conteúdo da página “{page}”.
-      </p>
-    </div>
-  );
+            <p className="text-white text-[14px]">
+              R$ <span className="text-[20px]">923.751.235</span>
+            </p>
+
+            <div className="w-[272px] h-[36px] flex space-x-2">
+              <Button className="w-[260px] h-[38px] !bg-[#292929] border-1 border-gray-400/50 rounded-[5px]">
+                Realizar Transferência
+              </Button>
+            </div>
+          </div>
+          <div className="w-[300px] h-[341px] border-1 border-gray-400/50 rounded-2xl  mb-0 p-8 space-y-2">
+            <p className="text-white text-[12px]">Minhas chaves Pix</p>
+            <div className="w-[240px] h-[181px] mb-10">
+              <ChavePix />
+            </div>
+            <div className="w-[240px] h-[38px]  mt-auto mb-0">
+              <Button className="w-[240px] h-[38px] !bg-[#292929] rounded-[5px]">
+                Cadastrar chave PIX
+              </Button>
+            </div>
+          </div>
+        </div>
+        <div className="w-[564px] h-[503px] m-6 space-y-5 bg-gradient-to-t from-[#292929] to-[#292929]/0 rounded-2xl ">
+          <div className="flex justify-between flex-col p-5">
+            <p className="text-white text-[12px]">Transações</p>
+            <div className="w-[236px] h-[28px] pt-2 space-x-2">
+              <Button className="w-[72px] h-[28px] !bg-[#fff]/10 rounded-[5px]">
+                Hoje
+              </Button>
+              <Button className="w-[72px] h-[28px] !bg-[#fff]/10 rounded-[5px]">
+                5 dias
+              </Button>
+              <Button className="w-[72px] h-[28px] !bg-[#fff]/10 rounded-[5px]">
+                30 dias
+              </Button>
+            </div>
+          </div>
+          <div className="w-[524px] h-[392px] ml-6 space-y-4">
+            <p className="text-white/55 text-[11px]">Hoje</p>
+            <div className="w-[524px] h-[177px] flex flex-col space-y-3">
+              {/* Trasferencias */}
+              <div className="w-[524px] h-[35px] flex space-x-3">
+                <TypeTransaction
+                  type={"transferencia"}
+                  date={"11/09/2023 ás 15:15"}
+                  amount={525627}
+                  width={"w-[300px]"}
+                />
+              </div>
+              {/* Saque */}
+
+              <div className="w-[524px] h-[35px] flex space-x-3">
+                <TypeTransaction
+                  type={"saque"}
+                  date={"11/09/2023 ás 15:15"}
+                  amount={105626}
+                  width={"w-[300px]"}
+                />
+              </div>
+              {/* Deposito */}
+
+              <div className="w-[524px] h-[35px] flex space-x-3">
+                <TypeTransaction
+                  type={"deposito"}
+                  date={"11/09/2023 ás 15:15"}
+                  amount={75893}
+                  width={"w-[300px]"}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  } else if (page === "coins") {
+    return (
+      <div className="w-[884px] h-[66px] bg-[#ffffff]/10 rounded-[15px] justify-center flex items"></div>
+    );
+  }
 };
 
 export default Center;

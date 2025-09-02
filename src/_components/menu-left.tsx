@@ -1,49 +1,63 @@
 import { ArrowRightFromLine } from "lucide-react";
-import Center from "./center";
-import { useState } from "react";
+import { useMemo } from "react";
 
 type PageKey = "dashboard" | "pix" | "coins" | "folha";
 
-const MenuLeft = () => {
-  const [page, setPage] = useState<PageKey>("dashboard");
+type MenuLeftProps = {
+  page: PageKey;
+  onChangePage: (p: PageKey) => void;
+};
 
-  const pageSelect = (namePageRender: PageKey) => {
-    setPage(namePageRender);
-  };
+const MenuLeft = ({ page, onChangePage }: MenuLeftProps) => {
+  // Se quiser evitar repetição, monta a lista:
+  const items = useMemo(
+    () =>
+      [
+        {
+          key: "dashboard",
+          src: "./Dashboard.svg",
+          activeSrc: "./DashboardWhite.svg",
+          alt: "Dashboard",
+        },
+        {
+          key: "pix",
+          src: "./Pix.svg",
+          activeSrc: "./PixWhite.svg",
+          alt: "Pix",
+        },
+        {
+          key: "coins",
+          src: "./Coins.svg",
+          activeSrc: "./CoinsWhite.svg",
+          alt: "Coins",
+        },
+        {
+          key: "folha",
+          src: "./Folha.svg",
+          activeSrc: "./FolhaWhite.svg",
+          alt: "Folha",
+        },
+      ] as const,
+    []
+  );
+
   return (
-    <div className="flex">
-      <div className="flex flex-col w-[70px] h-[563px] border-1 border-gray-400/50">
-        <div className="m-5 space-y-5 justify-center items-cente w-[25px]">
+    <div className="flex flex-col w-[70px] h-[563px] border border-gray-400/50">
+      <div className="m-5 space-y-5 flex flex-col items-center w-[25px]">
+        {items.map((it) => (
           <img
-            src="./Dashboard.svg"
-            alt="Dashboard"
-            className="w-full"
-            onClick={() => pageSelect("dashboard")}
+            key={it.key}
+            src={page === it.key ? it.activeSrc : it.src}
+            alt={it.alt}
+            className="w-full cursor-pointer"
+            onClick={() => onChangePage(it.key)}
           />
-          <img
-            src="./Pix.svg"
-            alt="Pix"
-            className="w-full"
-            onClick={() => pageSelect("pix")}
-          />
-          <img
-            src="./Coins.svg"
-            alt="Coins"
-            className="w-full"
-            onClick={() => pageSelect("coins")}
-          />
-          <img
-            src="./Folha.svg"
-            alt="Folha"
-            className="w-full"
-            onClick={() => pageSelect("folha")}
-          />
-        </div>
-        <div className="m-5 space-y-5 justify-center items-cente w-[25px] mt-auto">
-          <ArrowRightFromLine className="text-white" />
-        </div>
+        ))}
       </div>
-      <Center key={page} page={page} />
+
+      <div className="m-5 space-y-5 flex justify-center items-center w-[25px] mt-auto">
+        <ArrowRightFromLine className="text-white" />
+      </div>
     </div>
   );
 };
