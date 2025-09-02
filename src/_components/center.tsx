@@ -1,5 +1,6 @@
 import { ChartLineDefault } from "./chart-area-default";
 import ChavePix from "./chave-pisx";
+import { TableCripto } from "./cripto-table";
 import TypeTransaction from "./type-transactio";
 import { Button } from "./ui/button";
 import { Circle } from "lucide-react";
@@ -149,7 +150,7 @@ const Center = ({ page }: CenterProps) => {
     return (
       <div className="w-[944px] h-[563px] flex flex-col-1">
         <div className="m-6 pb-0 space-y-5">
-          <div className="w-[300px] h-[142px] border-1 border-gray-400/50 bg-[#292929] rounded-2xl p-5 space-y-2">
+          <div className="w-[300px] h-[142px] bg-[#292929] rounded-2xl p-5 space-y-2">
             <p className="text-white text-[12px]">Saldo Disponível</p>
 
             <p className="text-white text-[14px]">
@@ -228,7 +229,17 @@ const Center = ({ page }: CenterProps) => {
     );
   } else if (page === "coins") {
     return (
-      <div className="w-[884px] h-[66px] bg-[#ffffff]/10 rounded-[15px] justify-center flex items"></div>
+      <div className="m-6 space-y-5">
+        <div className="w-[884px] h-[66px] bg-[#ffffff]/10 rounded-[15px]">
+          <p className="text-white text-[12px] p-5 pb-0">Criptomoedas</p>
+          <p className="text-white/35 text-[12px] pl-5">
+            Analise o mercado, compre e venda moedas e consiga lucros!
+          </p>
+        </div>
+        <div className="w-[884px] h-[417px] border-1 border-gray-400/50 rounded-2xl">
+          <TableCripto />
+        </div>
+      </div>
     );
   }
 };
