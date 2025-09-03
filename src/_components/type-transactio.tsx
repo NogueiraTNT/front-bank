@@ -1,4 +1,9 @@
-import { ArrowDownLeft, ArrowRightLeft, ArrowUpRight } from "lucide-react";
+import {
+  ArrowDownLeft,
+  ArrowRightLeft,
+  ArrowUpRight,
+  FileText,
+} from "lucide-react";
 
 type TypeTransactionProps = {
   type: string;
@@ -29,6 +34,10 @@ const TypeTransaction = ({
     iconSelect = ArrowDownLeft;
     title = "Deposito";
     textColor = "text-[#02BC77]";
+  } else if (type === "multas") {
+    iconSelect = FileText;
+    title = "Multas";
+    textColor = "text-[#FF615C]";
   }
 
   const Icon = iconSelect;
