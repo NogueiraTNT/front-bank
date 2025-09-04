@@ -1,9 +1,12 @@
+import { Dialog, DialogTrigger } from "@radix-ui/react-dialog";
 import { ChartLineDefault } from "./chart-area-default";
 import ChavePix from "./chave-pisx";
 import { TableCripto } from "./cripto-table";
 import TypeTransaction from "./type-transactio";
 import { Button } from "./ui/button";
 import { Circle } from "lucide-react";
+import ButtonSaque from "./button-saque";
+import ButtonCreatePIX from "./button-create-pix";
 
 type PageKey = "dashboard" | "pix" | "coins" | "folha";
 
@@ -24,15 +27,30 @@ const Center = ({ page }: CenterProps) => {
             </p>
 
             <div className="w-[272px] h-[36px] flex space-x-2">
-              <Button className="w-[40px] h-[36px]  !bg-[#292929] rounded-[5px] p-0">
-                <img src="./Mao.svg" alt="Sacar" />
-              </Button>
-              <Button className="w-[40px] h-[36px] !bg-[#292929] rounded-[5px] p-0">
-                <img src="./Pig.svg" alt="Depositar" />
-              </Button>
-              <Button className="w-[172px] h-[36px] !bg-[#292929] rounded-[5px]">
-                <img src="./PixWhite.svg" alt="Pix" />
-              </Button>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button className="w-[40px] h-[36px]  !bg-[#292929] rounded-[5px] p-0">
+                    <img src="./Mao.svg" alt="Sacar" />
+                  </Button>
+                </DialogTrigger>
+                <ButtonSaque title={"Saque"} />
+              </Dialog>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button className="w-[40px] h-[36px] !bg-[#292929] rounded-[5px] p-0">
+                    <img src="./Pig.svg" alt="Depositar" />
+                  </Button>
+                </DialogTrigger>
+                <ButtonSaque title={"Depositar"} />
+              </Dialog>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button className="w-[172px] h-[36px] !bg-[#292929] rounded-[5px]">
+                    <img src="./PixWhite.svg" alt="Pix" />
+                  </Button>
+                </DialogTrigger>
+                <ButtonSaque title={"PIX"} />
+              </Dialog>
             </div>
           </div>
           <div className="w-[332px] h-[160px] border-1 border-t-0 border-gray-400/50 rounded-2xl mt-0 p-6 space-y-2">
@@ -158,9 +176,14 @@ const Center = ({ page }: CenterProps) => {
             </p>
 
             <div className="w-[272px] h-[36px] flex space-x-2">
-              <Button className="w-[260px] h-[38px] !bg-[#292929] border-1 border-gray-400/50 rounded-[5px]">
-                Realizar Transferência
-              </Button>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button className="w-[260px] h-[38px] !bg-[#292929] border-1 border-gray-400/50 rounded-[5px] font-[200]">
+                    Realizar Transferência
+                  </Button>
+                </DialogTrigger>
+                <ButtonSaque title={"PIX"} />
+              </Dialog>
             </div>
           </div>
           <div className="w-[300px] h-[341px] border-1 border-gray-400/50 rounded-2xl  mb-0 p-8 space-y-2">
@@ -169,9 +192,14 @@ const Center = ({ page }: CenterProps) => {
               <ChavePix />
             </div>
             <div className="w-[240px] h-[38px]  mt-auto mb-0">
-              <Button className="w-[240px] h-[38px] !bg-[#292929] rounded-[5px]">
-                Cadastrar chave PIX
-              </Button>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button className="w-[240px] h-[38px] !bg-[#292929] rounded-[5px] font-[200]">
+                    Cadastrar chave PIX
+                  </Button>
+                </DialogTrigger>
+                <ButtonCreatePIX />
+              </Dialog>
             </div>
           </div>
         </div>
@@ -179,13 +207,13 @@ const Center = ({ page }: CenterProps) => {
           <div className="flex justify-between flex-col p-5">
             <p className="text-white text-[12px]">Transações</p>
             <div className="w-[236px] h-[28px] pt-2 space-x-2">
-              <Button className="w-[72px] h-[28px] !bg-[#fff]/10 rounded-[5px]">
+              <Button className="w-[72px] h-[28px] !bg-[#fff]/10 rounded-[5px] font-[300]">
                 Hoje
               </Button>
-              <Button className="w-[72px] h-[28px] !bg-[#fff]/10 rounded-[5px]">
+              <Button className="w-[72px] h-[28px] !bg-[#fff]/10 rounded-[5px] font-[300]">
                 5 dias
               </Button>
-              <Button className="w-[72px] h-[28px] !bg-[#fff]/10 rounded-[5px]">
+              <Button className="w-[72px] h-[28px] !bg-[#fff]/10 rounded-[5px] font-[300]">
                 30 dias
               </Button>
             </div>
